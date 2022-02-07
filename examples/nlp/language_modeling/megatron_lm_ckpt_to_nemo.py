@@ -216,7 +216,7 @@ def convert(rank, world_size, args):
 
     app_state = AppState()
     app_state.data_parallel_rank = 0
-    trainer = Trainer(devices=args.tensor_model_parallel_size)
+    trainer = Trainer(devices=args.tensor_model_parallel_size, accelerator='gpu')
     # TODO: reach out to PTL For an API-safe local rank override
     trainer.accelerator.training_type_plugin._local_rank = rank
 
