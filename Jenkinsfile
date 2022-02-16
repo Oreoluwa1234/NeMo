@@ -2185,6 +2185,13 @@ pipeline {
 	// sh "rm -rf nemo_experiments"
   //     }
   //   }
+      stage('L2: Megatron GPT Convert from Megatron-LM checkpoing and Eval') {
+       when {
+        anyOf {
+          branch 'main'
+          changeRequest target: 'main'
+        }
+      }
       failFast true
       steps {
         sh "python -m torch.distributed.launch --nproc_per_node=2 \
