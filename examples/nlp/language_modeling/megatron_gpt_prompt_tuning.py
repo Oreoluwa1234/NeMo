@@ -144,7 +144,7 @@ def main(cfg) -> None:
     logging.info("\n\n************** Experiment configuration ***********")
     logging.info(f'\n{OmegaConf.to_yaml(cfg)}')
 
-    plugins = [NLPDDPPlugin(num_nodes=cfg.trainer.num_nodes)]
+    plugins = [NLPDDPPlugin()]
 
     trainer = Trainer(plugins=plugins, **cfg.trainer)
 
